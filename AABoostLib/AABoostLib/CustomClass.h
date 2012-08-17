@@ -20,11 +20,13 @@ public:
 public:
 	enum LABELTYPE{NEGATIVE=-1,POSITIVE=1};
 
-	int8_t m_label;
+	LABELTYPE m_label;
 	uint32_t m_partition;
 	double m_probability;
 	vector<double> m_features;
 };
+
+typedef vector<OneSample> Samples;
 
 class DividedManagement
 {
@@ -51,7 +53,7 @@ public:
 
 	//属性
 public:
-	vector<OneSample> m_samples;
+	Samples m_samples;
 
 private:
 	double m_probposw;
@@ -61,6 +63,7 @@ private:
 };
 
 typedef vector<DividedManagement> DividedManagements;
+typedef uint32_t CLASSIFIER;
 
 class AABoost
 {
@@ -70,16 +73,26 @@ public:
 	~AABoost();
 
 	//划分样本
-	void Samples2Managements();
+	void Samples2Managements(CLASSIFIER classifier);
 
 	//样本概率分布变更后更新样本
 	void Managements2Samples();
 
+	//计算当前划分归一化因子并选取最优结果
+	void CalcBestNormalizationFactor();
+
+	//更新概率分布
+	void UpdateProbabilityDistribution();
+
 	//属性
 private:
+	CLASSIFIER m_bestclassifier;
+	CLASSIFIER m_currentclassifier;
+	uint32_t m_binscount;
+	double m_bestnormalizationfactor;
+
 	DividedManagements m_dividedmanagements;
-	vector<OneSample> m_allsamples;
-	uint32_t m_bestclassifier;
+	Samples m_allsamples;
 };
 
 #endif
