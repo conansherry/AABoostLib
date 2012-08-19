@@ -4,7 +4,7 @@
 OneSample::OneSample()
 {
 	//构造函数
-	m_label=0;
+	m_label=OneSample::POSITIVE;
 	m_partition=0;
 	m_probability=0;
 }
@@ -24,7 +24,7 @@ DividedManagement::DividedManagement()
 	//构造函数
 	m_probposw=0;
 	m_probnegw=0;
-	m_output=0;
+	m_h=0;
 }
 
 DividedManagement::~DividedManagement()
@@ -60,14 +60,14 @@ double DividedManagement::GetProbNegW()
 	return m_probnegw;
 }
 
-void DividedManagement::CalcOutput()
+void DividedManagement::CalcH()
 {
-	m_output=(double)0.5*log((m_probposw+m_smoothingfactor)/(m_probnegw+m_smoothingfactor));
+	m_h=(double)0.5*log((m_probposw+m_smoothingfactor)/(m_probnegw+m_smoothingfactor));
 }
 
-double DividedManagement::GetOutput()
+double DividedManagement::GetH()
 {
-	return m_output;
+	return m_h;
 }
 
 void DividedManagement::SetSmoothingFactor(double value)
@@ -153,7 +153,7 @@ void AABoost::UpdateProbabilityDistribution()
 		Samples::iterator sitr;
 		for(sitr=itr->m_samples.begin();sitr!=itr->m_samples.end();sitr++)
 		{
-			sitr->m_probability=sitr->m_probability*exp(-(sitr->m_label)*(itr->GetOutput()))/m_bestnormalizationfactor;
+			sitr->m_probability=sitr->m_probability*exp(-(sitr->m_label)*(itr->GetH()))/m_bestnormalizationfactor;
 		}
 	}
 }

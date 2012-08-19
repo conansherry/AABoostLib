@@ -43,10 +43,10 @@ public:
 	double GetProbNegW();
 
 	//计算弱分类器Output
-	void CalcOutput();
+	void CalcH();
 
 	//获得弱分类器Output
-	double GetOutput();
+	double GetH();
 
 	//设置平滑因子
 	void SetSmoothingFactor(double value);
@@ -58,7 +58,7 @@ public:
 private:
 	double m_probposw;
 	double m_probnegw;
-	double m_output;
+	double m_h;
 	double m_smoothingfactor;
 };
 
