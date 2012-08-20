@@ -19,6 +19,80 @@ void OneSample::InitProb(unsigned int samplesNum)
 	m_probability=(double)1.0/samplesNum;
 }
 
+LUT::LUT()
+{
+	//构造函数
+	m_binscount=0;
+}
+
+LUT::~LUT()
+{
+	//析构函数
+}
+
+void LUT::GetMinMaxFeat(Samples &allsamples)
+{
+	double min,max;
+	if(allsamples.size()>0)
+	{
+		CLASSIFIER classifier;
+		for(classifier=0;classifier=allsamples[0].m_features.size();classifier++)
+		{
+			Samples::iterator sitr;
+			for(sitr=allsamples.begin();sitr!=allsamples.end();sitr++)
+			{
+				if(sitr==allsamples.begin())
+				{
+					min=sitr->m_features[classifier];
+					max=sitr->m_features[classifier];
+				}
+				else
+				{
+					if(min>sitr->m_features[classifier])
+					{
+						min=sitr->m_features[classifier];
+					}
+					else if(max<sitr->m_features[classifier])
+					{
+						max=sitr->m_features[classifier];
+					}
+				}
+			}
+
+			m_min.push_back(min);
+			m_max.push_back(max);
+		}
+	}
+}
+
+void LUT::SetBinsCount(INTTYPE binscount)
+{
+	m_binscount=binscount;
+}
+
+INTTYPE LUT::GetBinsCount()
+{
+	return m_binscount;
+}
+
+INTTYPE LUT::FindFeatBin(CLASSIFIER classifier,double feature)
+{
+	if(m_min.size()>0 && m_max.size()>0 &&m_min.size()==m_max.size())
+	{
+		if(feature<m_min[classifier])
+			feature=m_min[classifier];
+		else if(feature>m_max[classifier])
+			feature=m_max[classifier];
+
+		INTTYPE bin=(INTTYPE)(0.5+m_binscount*(feature-m_min[classifier])/(m_max[classifier]-m_min[classifier]));
+		return bin;
+	}
+	else
+	{
+		return m_binscount;
+	}
+}
+
 DividedManagement::DividedManagement()
 {
 	//构造函数
@@ -79,7 +153,6 @@ AABoost::AABoost()
 {
 	//构造函数
 	m_bestclassifier=0;
-	m_binscount=0;
 	m_bestnormalizationfactor=-1;
 	m_currentclassifier=0;
 }
@@ -96,8 +169,7 @@ void AABoost::Samples2Managements(CLASSIFIER classifier)
 	Samples::iterator itr;
 	for(itr=m_allsamples.begin();itr!=m_allsamples.end();itr++)
 	{
-		uint32_t xi=(uint32_t)(itr->m_features[classifier]*m_binscount);
-		m_dividedmanagements[xi].m_samples.push_back(*itr);
+		m_dividedmanagements[FindFeatBin(classifier,itr->m_features[classifier])].m_samples.push_back(*itr);
 	}
 
 	Samples().swap(m_allsamples);

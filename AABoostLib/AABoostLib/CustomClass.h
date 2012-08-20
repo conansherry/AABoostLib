@@ -6,6 +6,8 @@
 
 using namespace std;
 
+#define INTTYPE uint32_t
+
 class OneSample
 {
 	//行为
@@ -21,12 +23,37 @@ public:
 	enum LABELTYPE{NEGATIVE=-1,POSITIVE=1};
 
 	LABELTYPE m_label;
-	uint32_t m_partition;
+	INTTYPE m_partition;
 	double m_probability;
 	vector<double> m_features;
 };
 
 typedef vector<OneSample> Samples;
+typedef INTTYPE CLASSIFIER;
+
+class LUT
+{
+	//行为
+public:
+	LUT();
+	~LUT();
+
+	//获取特征集合中的最小值最大值
+	void GetMinMaxFeat(Samples &allsamples);
+
+	//设置获取binscount
+	void SetBinsCount(INTTYPE binscount);
+	INTTYPE GetBinsCount();
+
+	//获取特征所属BINS
+	INTTYPE FindFeatBin(CLASSIFIER classifier,double feature);
+
+	//属性
+protected:
+	INTTYPE m_binscount;
+	vector<double> m_min;
+	vector<double> m_max;
+};
 
 class DividedManagement
 {
@@ -63,9 +90,8 @@ private:
 };
 
 typedef vector<DividedManagement> DividedManagements;
-typedef uint32_t CLASSIFIER;
 
-class AABoost
+class AABoost:public LUT
 {
 	//行为
 public:
@@ -88,7 +114,6 @@ public:
 private:
 	CLASSIFIER m_bestclassifier;
 	CLASSIFIER m_currentclassifier;
-	uint32_t m_binscount;
 	double m_bestnormalizationfactor;
 
 	DividedManagements m_dividedmanagements;
