@@ -18,7 +18,10 @@
     <ClCompile Include="AABoostLib.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CustomClass.cpp">
+    <ClCompile Include="RealAdaboost.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FallsDetector.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -26,7 +29,13 @@
     <ClInclude Include="AABoostLib.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CustomClass.h">
+    <ClInclude Include="RealAdaboost.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FallsDetector.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Common.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

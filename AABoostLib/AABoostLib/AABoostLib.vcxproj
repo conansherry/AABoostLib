@@ -75,11 +75,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AABoostLib.cpp" />
-    <ClCompile Include="CustomClass.cpp" />
+    <ClCompile Include="FallsDetector.cpp" />
+    <ClCompile Include="RealAdaboost.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AABoostLib.h" />
-    <ClInclude Include="CustomClass.h" />
+    <ClInclude Include="Common.h" />
+    <ClInclude Include="FallsDetector.h" />
+    <ClInclude Include="RealAdaboost.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
