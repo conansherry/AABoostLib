@@ -3,8 +3,8 @@
 FallsDetector::FallsDetector()
 {
 	//¹¹Ôìº¯Êý
-	m_i=0;
-	m_Fi=0;
+	m_i=1;
+	m_Fi=1;
 
 	m_maxfalsepositivesf=0;
 	m_minpassd=0;
@@ -21,4 +21,16 @@ void FallsDetector::SetInitParameters(double maxfalsepositives,double minpass,do
 	m_maxfalsepositivesf=maxfalsepositives;
 	m_minpassd=minpass;
 	m_targetfalsepositivesf=targetfalsepositives;
+}
+
+void FallsDetector::LoadSamples()
+{
+}
+
+void FallsDetector::LevelTrain()
+{
+}
+
+void FallsDetector::LevelTrainFinished()
+{
 }
