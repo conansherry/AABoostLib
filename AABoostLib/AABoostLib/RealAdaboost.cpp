@@ -23,6 +23,7 @@ LUT::LUT()
 {
 	//构造函数
 	m_binscount=0;
+	m_feattypesnum=0;
 }
 
 LUT::~LUT()
@@ -36,7 +37,7 @@ void LUT::GetMinMaxFeat(Samples &allsamples)
 	if(allsamples.size()>0)
 	{
 		CLASSIFIER classifier;
-		for(classifier=0;classifier=allsamples[0].m_features.size();classifier++)
+		for(classifier=0;classifier=m_feattypesnum;classifier++)
 		{
 			Samples::iterator sitr;
 			for(sitr=allsamples.begin();sitr!=allsamples.end();sitr++)
@@ -91,6 +92,11 @@ INT LUT::FindFeatBin(CLASSIFIER classifier,double feature)
 	{
 		return m_binscount+1;
 	}
+}
+
+void LUT::SetFeatTypesnum(UINT value)
+{
+	m_feattypesnum=value;
 }
 
 DividedManagement::DividedManagement()
@@ -155,6 +161,7 @@ AABoost::AABoost()
 	m_bestclassifier=0;
 	m_bestnormalizationfactor=-1;
 	m_currentclassifier=0;
+	m_t=1;
 }
 
 AABoost::~AABoost()
@@ -190,28 +197,49 @@ void AABoost::Managements2Samples()
 	DividedManagements().swap(m_dividedmanagements);
 }
 
-void AABoost::SelectBestNormalizationFactor()
+void AABoost::SelectBestNormalizationFactorAndH()
 {
 	double normalizationfactor=0;
 	double posw,negw;
 	DividedManagements::iterator itr;
 	for(itr=m_dividedmanagements.begin();itr!=m_dividedmanagements.end();itr++)
 	{
+		//计算 W+1 W-1
 		itr->CalcProbW();
 		posw=itr->GetProbPosW();
 		negw=itr->GetProbNegW();
+
+		//当前划分下，每个划分对应的弱分类器输出
+		itr->CalcH();
+
+		//计算归一化因子Z
 		normalizationfactor+=(double)2.0*sqrt(posw*negw);
 	}
 
 	if(m_bestnormalizationfactor<0)
 	{
 		m_bestnormalizationfactor=normalizationfactor;
+		
+		//保存初始弱分类器输出
+		vector<double>().swap(m_besth);
+		for(itr=m_dividedmanagements.begin();itr!=m_dividedmanagements.end();itr++)
+		{
+			m_besth.push_back(itr->GetH());
+		}
 	}
 	else
 	{
 		if(m_bestnormalizationfactor>normalizationfactor)
 		{
 			m_bestnormalizationfactor=normalizationfactor;
+
+			//保存最优弱分类器输出
+			vector<double>().swap(m_besth);
+			for(itr=m_dividedmanagements.begin();itr!=m_dividedmanagements.end();itr++)
+			{
+				m_besth.push_back(itr->GetH());
+			}
+
 			m_bestclassifier=m_currentclassifier;
 		}
 	}
@@ -225,7 +253,7 @@ void AABoost::UpdateProbabilityDistribution()
 		Samples::iterator sitr;
 		for(sitr=itr->m_samples.begin();sitr!=itr->m_samples.end();sitr++)
 		{
-			sitr->m_probability=sitr->m_probability*exp(-(sitr->m_label)*(itr->GetH()))/m_bestnormalizationfactor;
+			sitr->m_probability=sitr->m_probability*exp(-(sitr->m_label)*(m_besth[(itr-m_dividedmanagements.begin())]))/m_bestnormalizationfactor;
 		}
 	}
 }
@@ -233,4 +261,37 @@ void AABoost::UpdateProbabilityDistribution()
 void AABoost::RunRealAdaboost()
 {
 	//连续Adaboost算法主循环
+
+	//计算所有类型的特征集合中的最大值和最小值
+	GetMinMaxFeat(m_allsamples);
+
+	//初始化样本概率分布
+	Samples::iterator sitr;
+	for(sitr=m_allsamples.begin();sitr!=m_allsamples.end();sitr++)
+	{
+		sitr->InitProb(m_allsamples.size());
+	}
+
+	while(m_t<T)
+	{
+		//每次迭代开始
+
+		//对所有特征进行划分并得到最优特征及对应弱分类器输出
+		CLASSIFIER classifier;
+		for(classifier=0;classifier<m_feattypesnum;classifier++)
+		{
+			//对每一个类型特征，进行样本划分
+			Samples2Managements(classifier);
+
+			//当前类型对应划分处理
+			SelectBestNormalizationFactorAndH();
+		}
+
+		//更新样本概率分布
+		UpdateProbabilityDistribution();
+
+		//记录该次迭代的最优特征和划分所对应的弱分类器输出
+
+		m_t++;
+	}
 }

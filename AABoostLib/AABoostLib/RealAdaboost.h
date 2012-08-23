@@ -42,9 +42,13 @@ public:
 	//获取特征所属BINS
 	INT FindFeatBin(CLASSIFIER classifier,double feature);
 
+	//设置特征类型数量
+	void SetFeatTypesnum(UINT value);
+
 	//属性
 protected:
 	INT m_binscount;
+	UINT m_feattypesnum;
 	vector<double> m_min;
 	vector<double> m_max;
 };
@@ -100,7 +104,7 @@ public:
 	void Managements2Samples();
 
 	//计算当前划分归一化因子并选取最优结果
-	void SelectBestNormalizationFactor();
+	void SelectBestNormalizationFactorAndH();
 
 	//更新概率分布
 	void UpdateProbabilityDistribution();
@@ -117,7 +121,13 @@ public:
 private:
 	CLASSIFIER m_bestclassifier;
 	CLASSIFIER m_currentclassifier;
+	UINT m_t;
 	double m_bestnormalizationfactor;
+	vector<double> m_besth;
+
+	//强分类器级联
+	vector<CLASSIFIER> m_strongbestclassifier;
+	vector<vector<double> > m_strongbesth;
 };
 
 #endif

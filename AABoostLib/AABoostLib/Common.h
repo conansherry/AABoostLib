@@ -11,4 +11,6 @@ using namespace std;
 
 typedef UINT CLASSIFIER;
 
+#define T 40
+
 #endif

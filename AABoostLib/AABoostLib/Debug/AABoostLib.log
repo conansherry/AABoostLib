@@ -1,4 +1,4 @@
-﻿Build started 2012/8/21 11:43:05.
+﻿Build started 2012/8/23 16:11:47.
      1>Project "C:\Users\QinWeining\Documents\GitHub\AABoostLib\AABoostLib\AABoostLib\AABoostLib.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Debug\AABoostLib.unsuccessfulbuild" because "AlwaysCreate" was specified.
@@ -27,4 +27,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:04.06
+Time Elapsed 00:00:13.09
