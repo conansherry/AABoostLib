@@ -34,6 +34,9 @@ LUT::~LUT()
 void LUT::GetMinMaxFeat(Samples &allsamples)
 {
 	double min,max;
+	vector<double>().swap(m_min);
+	vector<double>().swap(m_max);
+
 	if(allsamples.size()>0)
 	{
 		CLASSIFIER classifier;
@@ -171,6 +174,7 @@ AABoost::~AABoost()
 
 void AABoost::Samples2Managements(CLASSIFIER classifier)
 {
+	DividedManagements().swap(m_dividedmanagements);
 	m_dividedmanagements.resize(m_binscount);
 
 	Samples::iterator itr;
@@ -178,12 +182,12 @@ void AABoost::Samples2Managements(CLASSIFIER classifier)
 	{
 		m_dividedmanagements[FindFeatBin(classifier,itr->m_features[classifier])].m_samples.push_back(*itr);
 	}
-
-	Samples().swap(m_allsamples);
 }
 
 void AABoost::Managements2Samples()
 {
+	Samples().swap(m_allsamples);
+
 	DividedManagements::iterator itr;
 	for(itr=m_dividedmanagements.begin();itr!=m_dividedmanagements.end();itr++)
 	{
@@ -193,8 +197,6 @@ void AABoost::Managements2Samples()
 			m_allsamples.push_back(*sitr);
 		}
 	}
-
-	DividedManagements().swap(m_dividedmanagements);
 }
 
 void AABoost::SelectBestNormalizationFactorAndH()
@@ -262,6 +264,10 @@ void AABoost::RunRealAdaboost()
 {
 	//连续Adaboost算法主循环
 
+	//初始化
+	vector<CLASSIFIER>().swap(m_strongbestclassifier);
+	vector<vector<double> >().swap(m_strongbesth);
+
 	//计算所有类型的特征集合中的最大值和最小值
 	GetMinMaxFeat(m_allsamples);
 
@@ -291,6 +297,8 @@ void AABoost::RunRealAdaboost()
 		UpdateProbabilityDistribution();
 
 		//记录该次迭代的最优特征和划分所对应的弱分类器输出
+		m_strongbestclassifier.push_back(m_bestclassifier);
+		m_strongbesth.push_back(m_besth);
 
 		m_t++;
 	}

@@ -1,10 +1,12 @@
-﻿Build started 2012/8/23 16:11:47.
+﻿Build started 2012/8/24 9:46:10.
      1>Project "C:\Users\QinWeining\Documents\GitHub\AABoostLib\AABoostLib\AABoostLib\AABoostLib.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Debug\AABoostLib.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
          D:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _USRDLL /D AABOOSTLIB_EXPORTS /D _WINDLL /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt FallsDetector.cpp RealAdaboost.cpp
          RealAdaboost.cpp
+         Generating Code...
+         Compiling...
          FallsDetector.cpp
          Generating Code...
        ManifestResourceCompile:
@@ -27,4 +29,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:13.09
+Time Elapsed 00:00:11.15
