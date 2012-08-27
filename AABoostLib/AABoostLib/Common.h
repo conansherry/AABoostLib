@@ -1,6 +1,12 @@
 #ifndef COMMON_H
 #define COMMON_H
 
+#define DEBUG_OUTPUT
+
+#ifdef DEBUG_OUTPUT
+	#include <iostream>
+#endif
+
 #include <vector>
 #include <stdint.h>
 

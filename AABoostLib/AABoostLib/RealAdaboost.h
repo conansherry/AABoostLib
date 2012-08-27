@@ -115,7 +115,7 @@ public:
 	void RunRealAdaboost(double maxfalsepositivesf,double minpassd,UINT maxweakclassifiernum);
 
 	//计算强分类器误报率及通过率
-	void CalcFalseAndPass(double &falsepositivesf,double &passd,double maxfalsepositivesf,double minpassd);
+	void CalcFalseAndPass(double &falsepositivesf,double &passd,double minpassd);
 
 	//属性
 public:

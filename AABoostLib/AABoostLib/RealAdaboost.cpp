@@ -1,5 +1,6 @@
 #include "RealAdaboost.h"
 #include <math.h>
+#include <algorithm>
 
 OneSample::OneSample()
 {
@@ -289,7 +290,7 @@ void AABoost::RunRealAdaboost(double maxfalsepositivesf,double minpassd,UINT max
 		sitr->InitProb(m_allsamples.size());
 	}
 
-	while(m_t<maxweakclassifiernum && (falsepositivesf>maxfalsepositivesf || passd<minpassd))
+	while(m_t<maxweakclassifiernum && falsepositivesf>maxfalsepositivesf)
 	{
 		//每次迭代开始
 
@@ -315,13 +316,19 @@ void AABoost::RunRealAdaboost(double maxfalsepositivesf,double minpassd,UINT max
 		m_strongbesth.push_back(m_besth);
 
 		//调整阈值，并计算当前强分类器误报率及通过率
-		CalcFalseAndPass(falsepositivesf,passd,maxfalsepositivesf,minpassd);
+		CalcFalseAndPass(falsepositivesf,passd,minpassd);
+
+#ifdef DEBUG_OUTPUT
+		cout<<"当前弱分类器数:"<<m_t<<endl;
+		cout<<"当前正确率(正样本识别成人脸比例):"<<passd<<endl;
+		cout<<"当前错误率(负样本识别成人脸比例):"<<falsepositivesf<<endl;
+#endif
 
 		m_t++;
 	}
 }
 
-void AABoost::CalcFalseAndPass(double &falsepositivesf,double &passd,double maxfalsepositivesf,double minpassd)
+void AABoost::CalcFalseAndPass(double &falsepositivesf,double &passd,double minpassd)
 {
 	double signsum_pos=0;
 	double signsum_neg=0;
@@ -346,4 +353,28 @@ void AABoost::CalcFalseAndPass(double &falsepositivesf,double &passd,double maxf
 		v_pos.push_back(signsum_pos);
 		v_neg.push_back(signsum_neg);
 	}
+
+	//所有样本送入未设置阈值b的分类器，对输出进行排序
+	sort(v_pos.begin(),v_pos.end());
+	sort(v_neg.begin(),v_neg.end());
+
+	UINT idx;
+	double b;
+
+	//设置阈值b
+	idx=(UINT)((v_pos.size()-1)*(1-minpassd));
+	b=v_pos.at(idx);
+	m_bestb=b;
+
+	//计算通过率
+	passd=(double)(v_pos.size()-idx)/v_pos.size();
+
+	//计算错误率
+	vector<double>::iterator negitr;
+	for(negitr=v_neg.begin(),idx=0;negitr!=v_neg.end();negitr++,idx++)
+	{
+		if(*negitr>m_bestb)
+			break;
+	}
+	falsepositivesf=(double)(v_neg.size()-idx)/v_neg.size();
 }
