@@ -4,7 +4,7 @@ FallsDetector::FallsDetector()
 {
 	//¹¹Ôìº¯Êý
 	m_i=1;
-	m_Fi=1;
+	m_fi=1;
 
 	m_maxfalsepositivesf=0;
 	m_minpassd=0;

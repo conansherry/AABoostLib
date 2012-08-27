@@ -22,15 +22,22 @@ public:
 
 	//每层训练完毕+重新整理负样本
 	void LevelTrainFinished();
+	
+	void CreateCascadeClassifier();
 
 	//属性
 private:
-	UINT m_i;
-	double m_Fi;
+	UINT m_i;		//i
+	double m_fi;	//Fi
 
 	double m_maxfalsepositivesf;
 	double m_minpassd;
 	double m_targetfalsepositivesf;
+
+	PosSamples m_possamples;
+	NegSamples m_negsamples;
+
+	AABoost m_aaboost;
 };
 
 #endif

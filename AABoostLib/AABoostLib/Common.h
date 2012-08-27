@@ -11,7 +11,4 @@ using namespace std;
 
 typedef UINT CLASSIFIER;
 
-//Real Adaboost迭代最大次数
-#define T 40
-
 #endif

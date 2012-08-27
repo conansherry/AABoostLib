@@ -24,6 +24,8 @@ public:
 };
 
 typedef vector<OneSample> Samples;
+typedef Samples PosSamples;
+typedef Samples NegSamples;
 
 class LUT
 {
@@ -110,12 +112,20 @@ public:
 	void UpdateProbabilityDistribution();
 
 	//连续Adaboost算法
-	void RunRealAdaboost();
+	void RunRealAdaboost(double maxfalsepositivesf,double minpassd,UINT maxweakclassifiernum);
+
+	//计算强分类器误报率及通过率
+	void CalcFalseAndPass(double &falsepositivesf,double &passd,double maxfalsepositivesf,double minpassd);
 
 	//属性
 public:
 	DividedManagements m_dividedmanagements;
 	Samples m_allsamples;
+
+	//强分类器级联
+	double m_bestb;
+	vector<CLASSIFIER> m_strongbestclassifier;
+	vector<vector<double> > m_strongbesth;
 
 	//属性
 private:
@@ -124,10 +134,8 @@ private:
 	UINT m_t;
 	double m_bestnormalizationfactor;
 	vector<double> m_besth;
-
-	//强分类器级联
-	vector<CLASSIFIER> m_strongbestclassifier;
-	vector<vector<double> > m_strongbesth;
+	vector<double> m_posinclassifier;
+	vector<double> m_neginclassifier;
 };
 
 #endif

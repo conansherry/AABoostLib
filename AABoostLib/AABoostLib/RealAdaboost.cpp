@@ -88,12 +88,12 @@ INT LUT::FindFeatBin(CLASSIFIER classifier,double feature)
 		else if(feature>m_max[classifier])
 			feature=m_max[classifier];
 
-		INT bin=(INT)(0.5+m_binscount*(feature-m_min[classifier])/(m_max[classifier]-m_min[classifier]));
+		INT bin=(INT)((m_binscount-1)*(feature-m_min[classifier])/(m_max[classifier]-m_min[classifier]));
 		return bin;
 	}
 	else
 	{
-		return m_binscount+1;
+		return m_binscount;
 	}
 }
 
@@ -108,6 +108,7 @@ DividedManagement::DividedManagement()
 	m_probposw=0;
 	m_probnegw=0;
 	m_h=0;
+	m_smoothingfactor=0.000001;
 }
 
 DividedManagement::~DividedManagement()
@@ -164,7 +165,8 @@ AABoost::AABoost()
 	m_bestclassifier=0;
 	m_bestnormalizationfactor=-1;
 	m_currentclassifier=0;
-	m_t=1;
+	m_t=0;
+	m_bestb=0;
 }
 
 AABoost::~AABoost()
@@ -260,11 +262,20 @@ void AABoost::UpdateProbabilityDistribution()
 	}
 }
 
-void AABoost::RunRealAdaboost()
+void AABoost::RunRealAdaboost(double maxfalsepositivesf,double minpassd,UINT maxweakclassifiernum)
 {
 	//连续Adaboost算法主循环
 
-	//初始化
+	//变量声明并初始化
+	double falsepositivesf=maxfalsepositivesf+1;
+	double passd=minpassd-1;
+
+	m_bestclassifier=0;
+	m_bestnormalizationfactor=-1;
+	m_currentclassifier=0;
+	m_t=0;
+	m_bestb=0;
+
 	vector<CLASSIFIER>().swap(m_strongbestclassifier);
 	vector<vector<double> >().swap(m_strongbesth);
 
@@ -278,7 +289,7 @@ void AABoost::RunRealAdaboost()
 		sitr->InitProb(m_allsamples.size());
 	}
 
-	while(m_t<T)
+	while(m_t<maxweakclassifiernum && (falsepositivesf>maxfalsepositivesf || passd<minpassd))
 	{
 		//每次迭代开始
 
@@ -296,10 +307,43 @@ void AABoost::RunRealAdaboost()
 		//更新样本概率分布
 		UpdateProbabilityDistribution();
 
+		//更新所有样本
+		Managements2Samples();
+
 		//记录该次迭代的最优特征和划分所对应的弱分类器输出
 		m_strongbestclassifier.push_back(m_bestclassifier);
 		m_strongbesth.push_back(m_besth);
 
+		//调整阈值，并计算当前强分类器误报率及通过率
+		CalcFalseAndPass(falsepositivesf,passd,maxfalsepositivesf,minpassd);
+
 		m_t++;
+	}
+}
+
+void AABoost::CalcFalseAndPass(double &falsepositivesf,double &passd,double maxfalsepositivesf,double minpassd)
+{
+	double signsum_pos=0;
+	double signsum_neg=0;
+	vector<double> v_pos;
+	vector<double> v_neg;
+
+	Samples::iterator sitr;
+	for(sitr=m_allsamples.begin();sitr!=m_allsamples.end();sitr++)
+	{
+		signsum_pos=0;
+		signsum_neg=0;
+		vector<CLASSIFIER>::iterator citr;
+		vector<vector<double> >::iterator hitr;
+		for(citr=m_strongbestclassifier.begin(),hitr=m_strongbesth.begin();citr!=m_strongbestclassifier.end() && hitr!=m_strongbesth.end();citr++,hitr++)
+		{
+			if(sitr->m_label==OneSample::POSITIVE)
+				signsum_pos+=hitr->at(FindFeatBin(*citr,sitr->m_features[*citr]));
+			else if(sitr->m_label==OneSample::NEGATIVE)
+				signsum_neg+=hitr->at(FindFeatBin(*citr,sitr->m_features[*citr]));
+		}
+		
+		v_pos.push_back(signsum_pos);
+		v_neg.push_back(signsum_neg);
 	}
 }
