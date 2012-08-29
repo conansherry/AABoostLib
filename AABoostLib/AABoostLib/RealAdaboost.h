@@ -99,6 +99,9 @@ public:
 	AABoost();
 	~AABoost();
 
+	//初始化
+	void Init();
+
 	//划分样本
 	void Samples2Managements(CLASSIFIER classifier);
 

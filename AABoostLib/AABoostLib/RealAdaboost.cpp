@@ -163,16 +163,21 @@ void DividedManagement::SetSmoothingFactor(double value)
 AABoost::AABoost()
 {
 	//构造函数
-	m_bestclassifier=0;
-	m_bestnormalizationfactor=-1;
-	m_currentclassifier=0;
-	m_t=0;
-	m_bestb=0;
+	Init();
 }
 
 AABoost::~AABoost()
 {
 	//析构函数
+}
+
+void AABoost::Init()
+{
+	m_bestclassifier=0;
+	m_bestnormalizationfactor=-1;
+	m_currentclassifier=0;
+	m_t=0;
+	m_bestb=0;
 }
 
 void AABoost::Samples2Managements(CLASSIFIER classifier)
@@ -271,11 +276,8 @@ void AABoost::RunRealAdaboost(double maxfalsepositivesf,double minpassd,UINT max
 	double falsepositivesf=maxfalsepositivesf+1;
 	double passd=minpassd-1;
 
-	m_bestclassifier=0;
-	m_bestnormalizationfactor=-1;
-	m_currentclassifier=0;
-	m_t=0;
-	m_bestb=0;
+	//初始化
+	Init();
 
 	vector<CLASSIFIER>().swap(m_strongbestclassifier);
 	vector<vector<double> >().swap(m_strongbesth);

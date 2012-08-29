@@ -11,8 +11,11 @@ public:
 	FallsDetector();
 	~FallsDetector();
 
+	//初始化
+	void Init();
+
 	//设置初始参数
-	void SetInitParameters(double maxfalsepositives,double minpass,double targetfalsepositives);
+	void SetInitParameters(double maxfalsepositives,double minpass,double targetfalsepositives,double maxweakclassifiernum);
 
 	//载入样本
 	void LoadSamples();
@@ -23,6 +26,7 @@ public:
 	//每层训练完毕+重新整理负样本
 	void LevelTrainFinished();
 	
+	//创建级联强分类器
 	void CreateCascadeClassifier();
 
 	//属性
@@ -33,6 +37,7 @@ private:
 	double m_maxfalsepositivesf;
 	double m_minpassd;
 	double m_targetfalsepositivesf;
+	double m_maxweakclassifiernum;
 
 	PosSamples m_possamples;
 	NegSamples m_negsamples;
