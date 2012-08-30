@@ -22,7 +22,13 @@ void FallsDetector::Init()
 	m_maxweakclassifiernum=0;
 }
 
-void FallsDetector::SetInitParameters(double maxfalsepositives,double minpass,double targetfalsepositives,double maxweakclassifiernum)
+void FallsDetector::SetInitParameters(double maxfalsepositives,double minpass)
+{
+	m_maxfalsepositivesf=maxfalsepositives;
+	m_minpassd=minpass;
+}
+
+void FallsDetector::SetInitParameters(double maxfalsepositives,double minpass,double targetfalsepositives,UINT maxweakclassifiernum)
 {
 	m_maxfalsepositivesf=maxfalsepositives;
 	m_minpassd=minpass;
@@ -38,6 +44,8 @@ void FallsDetector::LoadSamples()
 void FallsDetector::LevelTrain()
 {
 	m_aaboost.RunRealAdaboost(m_maxfalsepositivesf,m_minpassd,m_maxweakclassifiernum);
+	m_cascadeclassifier.push_back(m_aaboost);
+	m_cascadeclassifier.back().Release();
 }
 
 void FallsDetector::LevelTrainFinished()
@@ -49,10 +57,22 @@ void FallsDetector::LevelTrainFinished()
 	if(m_fi>m_targetfalsepositivesf)
 	{
 		//收集新的负样本
+
+		//用当前瀑布扫描负样本
 	}
 }
 
 void FallsDetector::CreateCascadeClassifier()
 {
 	Init();
+
+	while(m_fi>m_targetfalsepositivesf)
+	{
+		LevelTrain();
+		
+		LevelTrainFinished();
+
+		//设置下一层的最大误报率和最小通过率
+		//SetInitParameters(maxfalsepositives,minpass);
+	}
 }

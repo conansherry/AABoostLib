@@ -15,7 +15,8 @@ public:
 	void Init();
 
 	//设置初始参数
-	void SetInitParameters(double maxfalsepositives,double minpass,double targetfalsepositives,double maxweakclassifiernum);
+	void SetInitParameters(double maxfalsepositives,double minpass);
+	void SetInitParameters(double maxfalsepositives,double minpass,double targetfalsepositives,UINT maxweakclassifiernum);
 
 	//载入样本
 	void LoadSamples();
@@ -37,12 +38,13 @@ private:
 	double m_maxfalsepositivesf;
 	double m_minpassd;
 	double m_targetfalsepositivesf;
-	double m_maxweakclassifiernum;
+	UINT m_maxweakclassifiernum;
 
 	PosSamples m_possamples;
 	NegSamples m_negsamples;
 
 	AABoost m_aaboost;
+	vector<AABoost> m_cascadeclassifier;
 };
 
 #endif

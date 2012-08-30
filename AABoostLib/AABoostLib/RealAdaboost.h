@@ -15,7 +15,7 @@ public:
 
 	//属性
 public:
-	enum LABELTYPE{NEGATIVE=-1,POSITIVE=1};
+	enum LABELTYPE{NEGATIVE=-1,UNKNOWN=0,POSITIVE=1};
 
 	LABELTYPE m_label;
 	INT m_partition;
@@ -120,6 +120,12 @@ public:
 	//计算强分类器误报率及通过率
 	void CalcFalseAndPass(double &falsepositivesf,double &passd,double minpassd);
 
+	//使用当前分类器预测分类，输入为单个样本，返回值为分类结果
+	OneSample::LABELTYPE Predict(const OneSample &onesample);
+
+	//释放空间
+	void Release();
+
 	//属性
 public:
 	DividedManagements m_dividedmanagements;
@@ -137,8 +143,6 @@ private:
 	UINT m_t;
 	double m_bestnormalizationfactor;
 	vector<double> m_besth;
-	vector<double> m_posinclassifier;
-	vector<double> m_neginclassifier;
 };
 
 #endif

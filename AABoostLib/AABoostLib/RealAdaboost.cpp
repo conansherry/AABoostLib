@@ -380,3 +380,31 @@ void AABoost::CalcFalseAndPass(double &falsepositivesf,double &passd,double minp
 	}
 	falsepositivesf=(double)(v_neg.size()-idx)/v_neg.size();
 }
+
+OneSample::LABELTYPE AABoost::Predict(const OneSample &onesample)
+{
+	if(m_strongbestclassifier.size()!=m_strongbesth.size() || m_strongbestclassifier.size()==0 || m_strongbesth.size()==0)
+		return OneSample::UNKNOWN;
+
+	vector<CLASSIFIER>::iterator citr;
+	vector<vector<double> >::iterator hitr;
+	double sign_num=0;
+	for(citr=m_strongbestclassifier.begin(),hitr=m_strongbesth.begin();citr!=m_strongbestclassifier.end() && hitr!=m_strongbesth.end();citr++,hitr++)
+	{
+		sign_num+=hitr->at(FindFeatBin(*citr,onesample.m_features[*citr]));
+	}
+	sign_num-=m_bestb;
+	if(sign_num>0)
+		return OneSample::POSITIVE;
+	else if(sign_num<0)
+		return OneSample::NEGATIVE;
+	else
+		return OneSample::UNKNOWN;
+}
+
+void AABoost::Release()
+{
+	DividedManagements().swap(m_dividedmanagements);
+	Samples().swap(m_allsamples);
+	vector<double>().swap(m_besth);
+}
