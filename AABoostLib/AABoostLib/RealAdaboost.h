@@ -11,7 +11,7 @@ public:
 	~OneSample();
 
 	//初始化样本概率分布
-	void InitProb(unsigned int samplesNum);
+	void InitProb(UINT samplesNum);
 
 	//属性
 public:

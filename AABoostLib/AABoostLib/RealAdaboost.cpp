@@ -15,7 +15,7 @@ OneSample::~OneSample()
 	//Îö¹¹º¯Êý
 }
 
-void OneSample::InitProb(unsigned int samplesNum)
+void OneSample::InitProb(UINT samplesNum)
 {
 	m_probability=(double)1.0/samplesNum;
 }
