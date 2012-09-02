@@ -3,6 +3,7 @@
 HaarFeature::HaarFeature()
 {
 	//构造函数
+	Init();
 }
 
 HaarFeature::~HaarFeature()
@@ -45,7 +46,7 @@ void HaarFeature::ExtractFeatures()
 					}
 
 					//类型2
-					if((x+dy*2<=m_height) && (y+dx<=m_width))
+					if((x+dx<=m_width) && (y+dy*2<=m_height))
 					{
 						if(dx*2*dy<m_minarea)
 							continue;
@@ -54,6 +55,62 @@ void HaarFeature::ExtractFeatures()
 						double feature;
 						feature=CalcHaarFeature(x,	y,		dx,	dy*2,	-1,
 							                    x,	y+dy,	dx,	dy,		+2);
+						m_features.push_back(feature);
+					}
+
+					//类型3
+					if((x+dx*3<=m_width) && (y+dy<=m_height))
+					{
+						if(dx*3*dy<m_minarea)
+							continue;
+
+						//计算特征
+						double feature;
+						feature=CalcHaarFeature(x,		y,	dx*3,	dy,	+1,
+							                    x+dx,	y,	dx,		dy,	-2);
+						m_features.push_back(feature);
+					}
+
+					//类型4
+					if((x+dx*2<=m_width) && (y+dy*2<=m_height))
+					{
+						if(dx*2*dy*2<m_minarea)
+							continue;
+
+						//计算特征
+						double feature;
+						feature=CalcHaarFeature(x,	y,	dx*2,	dy*2,	+1,
+							                    x,	y,	dx,		dy,		-4)
+								+
+								CalcHaarFeature(x,		y,		dx*2,	dy*2,	+1,
+								                x+dx,	y+dy,	dx,		dy,		-4);
+						feature/=2;
+						m_features.push_back(feature);
+					}
+
+					//类型5
+					if((x+dx*2<=m_width) && (y+dy*2<=m_height))
+					{
+						if(dx*2*dy*2<m_minarea)
+							continue;
+
+						//计算特征
+						double feature;
+						feature=CalcHaarFeature(x,		y+dy,	dx,	dy,	+1,
+							                    x+dx,	y,		dx,	dy,	-1);
+						m_features.push_back(feature);
+					}
+
+					//类型6
+					if((x+dx*2<=m_width) && (y+dy*2<=m_height))
+					{
+						if(dx*2*dy*2<m_minarea)
+							continue;
+
+						//计算特征
+						double feature;
+						feature=CalcHaarFeature(x,		y,		dx,	dy,	-1,
+							                    x+dx,	y+dy,	dx,	dy,	+1);
 						m_features.push_back(feature);
 					}
 				}

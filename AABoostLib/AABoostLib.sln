@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AABoostLib", "AABoostLib\AABoostLib.vcxproj", "{99A89881-8106-46E3-9C83-DFFC68C06EFB}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LibTest", "LibTest\LibTest.vcxproj", "{A737549F-B744-43D3-A513-97416A1E30B8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -13,6 +15,10 @@ Global
 		{99A89881-8106-46E3-9C83-DFFC68C06EFB}.Debug|Win32.Build.0 = Debug|Win32
 		{99A89881-8106-46E3-9C83-DFFC68C06EFB}.Release|Win32.ActiveCfg = Release|Win32
 		{99A89881-8106-46E3-9C83-DFFC68C06EFB}.Release|Win32.Build.0 = Release|Win32
+		{A737549F-B744-43D3-A513-97416A1E30B8}.Debug|Win32.ActiveCfg = Debug|Win32
+		{A737549F-B744-43D3-A513-97416A1E30B8}.Debug|Win32.Build.0 = Debug|Win32
+		{A737549F-B744-43D3-A513-97416A1E30B8}.Release|Win32.ActiveCfg = Release|Win32
+		{A737549F-B744-43D3-A513-97416A1E30B8}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
