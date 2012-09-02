@@ -408,3 +408,15 @@ void AABoost::Release()
 	Samples().swap(m_allsamples);
 	vector<double>().swap(m_besth);
 }
+
+void AABoost::InsertOneSample(OneSample::LABELTYPE label,vector <double> &features,bool isFirst)
+{
+	if(isFirst==true)
+		Release();
+
+	OneSample onesample;
+	onesample.m_label=label;
+	onesample.m_features=features;
+
+	m_allsamples.push_back(onesample);
+}

@@ -99,6 +99,20 @@ public:
 	AABoost();
 	~AABoost();
 
+	//连续Adaboost算法
+	void RunRealAdaboost(double maxfalsepositivesf,double minpassd,UINT maxweakclassifiernum);
+
+	//释放空间
+	void Release();
+
+	//使用当前分类器预测分类，输入为单个样本，返回值为分类结果
+	OneSample::LABELTYPE Predict(const OneSample &onesample);
+
+	//插入样本接口
+	void InsertOneSample(OneSample::LABELTYPE label,vector <double> &features,bool isFirst=false);
+
+	//行为
+private:
 	//初始化
 	void Init();
 
@@ -114,23 +128,11 @@ public:
 	//更新概率分布
 	void UpdateProbabilityDistribution();
 
-	//连续Adaboost算法
-	void RunRealAdaboost(double maxfalsepositivesf,double minpassd,UINT maxweakclassifiernum);
-
 	//计算强分类器误报率及通过率
 	void CalcFalseAndPass(double &falsepositivesf,double &passd,double minpassd);
 
-	//使用当前分类器预测分类，输入为单个样本，返回值为分类结果
-	OneSample::LABELTYPE Predict(const OneSample &onesample);
-
-	//释放空间
-	void Release();
-
 	//属性
 public:
-	DividedManagements m_dividedmanagements;
-	Samples m_allsamples;
-
 	//强分类器级联
 	double m_bestb;
 	vector<CLASSIFIER> m_strongbestclassifier;
@@ -143,6 +145,9 @@ private:
 	UINT m_t;
 	double m_bestnormalizationfactor;
 	vector<double> m_besth;
+
+	DividedManagements m_dividedmanagements;
+	Samples m_allsamples;
 };
 
 #endif

@@ -22,12 +22,6 @@ void FallsDetector::Init()
 	m_maxweakclassifiernum=0;
 }
 
-void FallsDetector::SetInitParameters(double maxfalsepositives,double minpass)
-{
-	m_maxfalsepositivesf=maxfalsepositives;
-	m_minpassd=minpass;
-}
-
 void FallsDetector::SetInitParameters(double maxfalsepositives,double minpass,double targetfalsepositives,UINT maxweakclassifiernum)
 {
 	m_maxfalsepositivesf=maxfalsepositives;
@@ -66,13 +60,14 @@ void FallsDetector::CreateCascadeClassifier()
 {
 	Init();
 
+	//设置第一层参数
+
 	while(m_fi>m_targetfalsepositivesf)
 	{
 		LevelTrain();
 		
 		LevelTrainFinished();
 
-		//设置下一层的最大误报率和最小通过率
-		//SetInitParameters(maxfalsepositives,minpass);
+		//设置下一层参数
 	}
 }

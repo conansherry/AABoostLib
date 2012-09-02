@@ -15,6 +15,11 @@ public:
 	HaarFeature();
 	~HaarFeature();
 
+	void ExtractHaarFeatures(const cv::Mat &image);
+	void ExtractHaarFeatures(const cv::Mat &image,vector<double> &features);
+
+	//行为
+private:
 	//初始化参数
 	void Init(unsigned int Width=0,unsigned int Height=0,unsigned int MinArea=0);
 
@@ -27,8 +32,6 @@ public:
 	//清空特征集合
 	void Clean();
 
-	//行为
-private:
 	//单元Haar特征计算
 	double CalcHaarFeature(unsigned int x0,unsigned int y0,unsigned int width0,unsigned int height0,int coefficient0,
 	                       unsigned int x1,unsigned int y1,unsigned int width1,unsigned int height1,int coefficient1);

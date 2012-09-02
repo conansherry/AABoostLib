@@ -15,7 +15,6 @@ public:
 	void Init();
 
 	//设置初始参数
-	void SetInitParameters(double maxfalsepositives,double minpass);
 	void SetInitParameters(double maxfalsepositives,double minpass,double targetfalsepositives,UINT maxweakclassifiernum);
 
 	//载入样本

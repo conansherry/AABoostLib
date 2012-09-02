@@ -11,8 +11,22 @@ HaarFeature::~HaarFeature()
 	//Îö¹¹º¯Êý
 }
 
+void HaarFeature::ExtractHaarFeatures(const cv::Mat &image)
+{
+	Init(image.cols,image.rows);
+	CalcIntegralImage(image);
+	ExtractFeatures();
+}
+
+void HaarFeature::ExtractHaarFeatures(const cv::Mat &image,vector<double> &features)
+{
+	ExtractHaarFeatures(image);
+	features=m_features;
+}
+
 void HaarFeature::Init(unsigned int Width,unsigned int Height,unsigned int MinArea)
 {
+	Clean();
 	m_width=Width;
 	m_height=Height;
 	m_minarea=MinArea;
