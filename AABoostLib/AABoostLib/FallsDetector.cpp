@@ -50,7 +50,9 @@ void FallsDetector::LevelTrainFinished()
 
 	if(m_fi>m_targetfalsepositivesf)
 	{
-		//收集新的负样本
+		//收集新的正、负样本
+
+		//用当前瀑布扫描正样本
 
 		//用当前瀑布扫描负样本
 	}

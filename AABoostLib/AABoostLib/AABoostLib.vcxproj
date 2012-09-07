@@ -81,12 +81,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AABoostLib.cpp" />
+    <ClCompile Include="BackGround.cpp" />
     <ClCompile Include="FallsDetector.cpp" />
     <ClCompile Include="HaarFeature.cpp" />
     <ClCompile Include="RealAdaboost.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AABoostLib.h" />
+    <ClInclude Include="BackGround.h" />
     <ClInclude Include="Common.h" />
     <ClInclude Include="FallsDetector.h" />
     <ClInclude Include="HaarFeature.h" />
