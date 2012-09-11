@@ -1,9 +1,9 @@
-﻿Build started 2012/9/7 12:45:06.
-     1>Project "C:\Users\LvFQ\Documents\GitHub\AABoostLib\AABoostLib\AABoostLib\AABoostLib.vcxproj" on node 2 (clean target(s)).
+﻿Build started 2012/9/11 21:47:28.
+     1>Project "D:\WorkPlace\GitHub\AABoostLib\AABoostLib\AABoostLib\AABoostLib.vcxproj" on node 2 (clean target(s)).
      1>_PrepareForClean:
          Deleting file "Debug\AABoostLib.lastbuildstate".
-     1>Done Building Project "C:\Users\LvFQ\Documents\GitHub\AABoostLib\AABoostLib\AABoostLib\AABoostLib.vcxproj" (clean target(s)).
+     1>Done Building Project "D:\WorkPlace\GitHub\AABoostLib\AABoostLib\AABoostLib\AABoostLib.vcxproj" (clean target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.08
+Time Elapsed 00:00:00.01

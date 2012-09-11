@@ -31,4 +31,6 @@ typedef UINT CLASSIFIER;
 
 #endif
 
+#define NUMLENGTH 10
+
 #endif
