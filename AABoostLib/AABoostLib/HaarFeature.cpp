@@ -40,6 +40,7 @@ void HaarFeature::CalcIntegralImage(const cv::Mat &image)
 
 void HaarFeature::ExtractFeatures()
 {
+	unsigned int type1=0;
 	unsigned int x,y,dx,dy;
 	for(x=0;x<m_width;x++)
 		for(y=0;y<m_height;y++)
@@ -128,6 +129,9 @@ void HaarFeature::ExtractFeatures()
 						m_features.push_back(feature);
 					}
 				}
+#ifdef DEBUG_OUTPUT
+	cout<<"ÌØÕ÷×ÜÊý:"<<m_features.size()<<endl;
+#endif
 }
 
 double HaarFeature::CalcHaarFeature(unsigned int x0,unsigned int y0,unsigned int width0,unsigned int height0,int coefficient0,

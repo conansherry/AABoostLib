@@ -1,34 +1,40 @@
 #ifndef COMMON_H
 #define COMMON_H
 
-#pragma warning(disable:4251)
+#ifdef WIN32
+	#pragma warning(disable:4251)
+#endif
 
 #define DEBUG_OUTPUT
 
 #ifdef DEBUG_OUTPUT
 	#include <iostream>
+	#include <iomanip>
 #endif
 
 #include <vector>
 #include <stdint.h>
 
+#include <time.h>
+
 using namespace std;
 
-#define UINT uint32_t
-#define INT int32_t
+typedef unsigned int CLASSIFIER;
 
-typedef UINT CLASSIFIER;
+#ifdef WIN32
+	#define EXPORT_CLASS_EXPORTS
 
-#define EXPORT_CLASS_EXPORTS
+	#ifdef EXPORT_CLASS_EXPORTS
 
-#ifdef EXPORT_CLASS_EXPORTS
+		#define EXPORT_CLASS __declspec(dllexport)
 
-	#define EXPORT_CLASS __declspec(dllexport)
+	#else
 
+		#define EXPORT_CLASS __declspec(dllimport)
+
+	#endif
 #else
-
-	#define EXPORT_CLASS __declspec(dllimport)
-
+	#define EXPORT_CLASS
 #endif
 
 #define NUMLENGTH 10

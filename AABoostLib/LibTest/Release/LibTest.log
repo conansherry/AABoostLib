@@ -1,0 +1,22 @@
+﻿Build started 2012/9/14 23:28:23.
+     1>Project "D:\WorkPlace\GitHub\AABoostLib\AABoostLib\LibTest\LibTest.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Release\LibTest.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+       Link:
+         D:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\WorkPlace\GitHub\AABoostLib\AABoostLib\Release\LibTest.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:D:\OpenCV2.4.2\opencv\custombuild\install\lib /LIBPATH:D:\WorkPlace\GitHub\AABoostLib\AABoostLib\Release\ AABoostLib.lib opencv_calib3d242.lib opencv_contrib242.lib opencv_core242.lib opencv_features2d242.lib opencv_flann242.lib opencv_gpu242.lib opencv_highgui242.lib opencv_imgproc242.lib opencv_legacy242.lib opencv_ml242.lib opencv_nonfree242.lib opencv_objdetect242.lib opencv_photo242.lib opencv_stitching242.lib opencv_ts242.lib opencv_video242.lib opencv_videostab242.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Release\LibTest.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\WorkPlace\GitHub\AABoostLib\AABoostLib\Release\LibTest.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\WorkPlace\GitHub\AABoostLib\AABoostLib\Release\LibTest.lib" /MACHINE:X86 Release\main.obj
+            Creating library D:\WorkPlace\GitHub\AABoostLib\AABoostLib\Release\LibTest.lib and object D:\WorkPlace\GitHub\AABoostLib\AABoostLib\Release\LibTest.exp
+         Generating code
+         Finished generating code
+         LibTest.vcxproj -> D:\WorkPlace\GitHub\AABoostLib\AABoostLib\Release\LibTest.exe
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"D:\WorkPlace\GitHub\AABoostLib\AABoostLib\Release\LibTest.exe;#1" /manifest Release\LibTest.exe.intermediate.manifest
+       FinalizeBuildStatus:
+         Deleting file "Release\LibTest.unsuccessfulbuild".
+         Touching "Release\LibTest.lastbuildstate".
+     1>Done Building Project "D:\WorkPlace\GitHub\AABoostLib\AABoostLib\LibTest\LibTest.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.49

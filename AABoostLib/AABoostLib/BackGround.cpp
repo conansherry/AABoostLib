@@ -1,4 +1,5 @@
 #include "BackGround.h"
+#include <fstream>
 
 BackGround::BackGround()
 {
@@ -98,12 +99,14 @@ void BackGround::GetBackground(string srcfilename,string outputdir,unsigned int 
 #ifdef DEBUG_OUTPUT
 		cout<<"Open File Error"<<endl;
 #endif
-		return;
+		exit(1);
 	}
-	while(!getline(fin,filepath))
+	while(getline(fin,filepath))
 	{
+		m_input.release();
 		m_input=cv::imread(filepath,0);
 		SetPrefix(GetFileName(filepath.c_str()));
 		OutputBackground(scale,scalefactor,step);
 	}
+	fin.close();
 }

@@ -1,0 +1,23 @@
+﻿Build started 2012/9/16 15:59:59.
+     1>Project "D:\WorkPlace\GitHub\AABoostLib\AABoostLib\LibTest\LibTest.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "x64\Release\LibTest.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         D:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\CL.exe /c /ID:\OpenCV2.4.2\opencv\custombuildX64\install\include\opencv /ID:\OpenCV2.4.2\opencv\custombuildX64\install\include /ID:\WorkPlace\GitHub\AABoostLib\AABoostLib\\AABoostLib /Zi /nologo /W3 /WX- /O2 /Oi /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Release\\" /Fd"x64\Release\vc100.pdb" /Gd /TP /errorReport:prompt main.cpp
+         main.cpp
+       Link:
+         D:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"D:\WorkPlace\GitHub\AABoostLib\AABoostLib\x64\Release\LibTest.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:D:\OpenCV2.4.2\opencv\custombuildX64\install\lib /LIBPATH:D:\WorkPlace\GitHub\AABoostLib\AABoostLib\x64\Release\ AABoostLib.lib opencv_calib3d242.lib opencv_contrib242.lib opencv_core242.lib opencv_features2d242.lib opencv_flann242.lib opencv_gpu242.lib opencv_highgui242.lib opencv_imgproc242.lib opencv_legacy242.lib opencv_ml242.lib opencv_nonfree242.lib opencv_objdetect242.lib opencv_photo242.lib opencv_stitching242.lib opencv_ts242.lib opencv_video242.lib opencv_videostab242.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"x64\Release\LibTest.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\WorkPlace\GitHub\AABoostLib\AABoostLib\x64\Release\LibTest.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\WorkPlace\GitHub\AABoostLib\AABoostLib\x64\Release\LibTest.lib" /MACHINE:X64 x64\Release\main.obj
+            Creating library D:\WorkPlace\GitHub\AABoostLib\AABoostLib\x64\Release\LibTest.lib and object D:\WorkPlace\GitHub\AABoostLib\AABoostLib\x64\Release\LibTest.exp
+         Generating code
+         Finished generating code
+         LibTest.vcxproj -> D:\WorkPlace\GitHub\AABoostLib\AABoostLib\x64\Release\LibTest.exe
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"D:\WorkPlace\GitHub\AABoostLib\AABoostLib\x64\Release\LibTest.exe;#1" /manifest x64\Release\LibTest.exe.intermediate.manifest
+       FinalizeBuildStatus:
+         Deleting file "x64\Release\LibTest.unsuccessfulbuild".
+         Touching "x64\Release\LibTest.lastbuildstate".
+     1>Done Building Project "D:\WorkPlace\GitHub\AABoostLib\AABoostLib\LibTest\LibTest.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.20

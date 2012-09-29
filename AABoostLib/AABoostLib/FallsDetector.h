@@ -3,41 +3,49 @@
 
 #include "Common.h"
 #include "RealAdaboost.h"
+#include <fstream>
 
-class FallsDetector
+class EXPORT_CLASS FallsDetector
 {
 	//行为
 public:
 	FallsDetector();
 	~FallsDetector();
 
-	//初始化
-	void Init();
+	//创建级联强分类器
+	void CreateCascadeClassifier(string posfile,string negfile);
 
 	//设置初始参数
-	void SetInitParameters(double maxfalsepositives,double minpass,double targetfalsepositives,UINT maxweakclassifiernum);
+	void SetInitParameters(double maxfalsepositives,double minpass,double targetfalsepositives,unsigned int maxweakclassifiernum);
 
-	//载入样本
-	void LoadSamples();
+private:
+	//初始化
+	void Init();
 
 	//训练
 	void LevelTrain();
 
 	//每层训练完毕+重新整理负样本
 	void LevelTrainFinished();
-	
-	//创建级联强分类器
-	void CreateCascadeClassifier();
+
+	//挑选样本
+	void PrepareSamples(string posfile,string negfile);
+
+	//载入样本数据
+	void LoadSamples(string posdata,string negdata);
+
+	//保存特征到文件
+	void SaveFeatures(ofstream &fout,vector<double> &features);
 
 	//属性
 private:
-	UINT m_i;		//i
+	unsigned int m_i;		//i
 	double m_fi;	//Fi
 
 	double m_maxfalsepositivesf;
 	double m_minpassd;
 	double m_targetfalsepositivesf;
-	UINT m_maxweakclassifiernum;
+	unsigned int m_maxweakclassifiernum;
 
 	PosSamples m_possamples;
 	NegSamples m_negsamples;
