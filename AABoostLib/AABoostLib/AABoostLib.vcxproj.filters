@@ -30,6 +30,9 @@
     <ClCompile Include="BackGround.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="HogFeature.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AABoostLib.h">
@@ -48,6 +51,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="BackGround.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HogFeature.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

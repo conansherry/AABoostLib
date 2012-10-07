@@ -158,6 +158,7 @@
     <ClCompile Include="BackGround.cpp" />
     <ClCompile Include="FallsDetector.cpp" />
     <ClCompile Include="HaarFeature.cpp" />
+    <ClCompile Include="HogFeature.cpp" />
     <ClCompile Include="RealAdaboost.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -166,6 +167,7 @@
     <ClInclude Include="Common.h" />
     <ClInclude Include="FallsDetector.h" />
     <ClInclude Include="HaarFeature.h" />
+    <ClInclude Include="HogFeature.h" />
     <ClInclude Include="RealAdaboost.h" />
   </ItemGroup>
   <ItemGroup>

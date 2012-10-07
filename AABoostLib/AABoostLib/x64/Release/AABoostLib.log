@@ -1,30 +1,9 @@
-﻿Build started 2012/9/16 15:59:47.
-     1>Project "D:\WorkPlace\GitHub\AABoostLib\AABoostLib\AABoostLib\AABoostLib.vcxproj" on node 2 (build target(s)).
-     1>InitializeBuildStatus:
-         Creating "x64\Release\AABoostLib.unsuccessfulbuild" because "AlwaysCreate" was specified.
-       ClCompile:
-         D:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\CL.exe /c /ID:\OpenCV2.4.2\opencv\custombuildX64\install\include /ID:\OpenCV2.4.2\opencv\custombuildX64\install\include\opencv /Zi /nologo /W3 /WX- /O2 /Oi /GL /D WIN32 /D NDEBUG /D _WINDOWS /D _USRDLL /D AABOOSTLIB_EXPORTS /D _WINDLL /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Release\\" /Fd"x64\Release\vc100.pdb" /Gd /TP /errorReport:prompt FallsDetector.cpp RealAdaboost.cpp
-         FallsDetector.cpp
-         RealAdaboost.cpp
-     1>RealAdaboost.cpp(43): warning C4267: 'argument' : conversion from 'size_t' to 'unsigned int', possible loss of data
-     1>RealAdaboost.cpp(330): warning C4267: 'argument' : conversion from 'size_t' to 'unsigned int', possible loss of data
-       Link:
-         D:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"D:\WorkPlace\GitHub\AABoostLib\AABoostLib\x64\Release\AABoostLib.dll" /INCREMENTAL:NO /NOLOGO /LIBPATH:D:\OpenCV2.4.2\opencv\custombuildX64\install\lib opencv_calib3d242.lib opencv_contrib242.lib opencv_core242.lib opencv_features2d242.lib opencv_flann242.lib opencv_gpu242.lib opencv_highgui242.lib opencv_imgproc242.lib opencv_legacy242.lib opencv_ml242.lib opencv_nonfree242.lib opencv_objdetect242.lib opencv_photo242.lib opencv_stitching242.lib opencv_ts242.lib opencv_video242.lib opencv_videostab242.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /DEF:"AABoostLib.def" /MANIFEST /ManifestFile:"x64\Release\AABoostLib.dll.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\WorkPlace\GitHub\AABoostLib\AABoostLib\x64\Release\AABoostLib.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\WorkPlace\GitHub\AABoostLib\AABoostLib\x64\Release\AABoostLib.lib" /MACHINE:X64 /DLL x64\Release\AABoostLib.obj
-         x64\Release\BackGround.obj
-         x64\Release\FallsDetector.obj
-         x64\Release\HaarFeature.obj
-         x64\Release\RealAdaboost.obj
-            Creating library D:\WorkPlace\GitHub\AABoostLib\AABoostLib\x64\Release\AABoostLib.lib and object D:\WorkPlace\GitHub\AABoostLib\AABoostLib\x64\Release\AABoostLib.exp
-         Generating code
-         Finished generating code
-         AABoostLib.vcxproj -> D:\WorkPlace\GitHub\AABoostLib\AABoostLib\x64\Release\AABoostLib.dll
-       Manifest:
-         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"D:\WorkPlace\GitHub\AABoostLib\AABoostLib\x64\Release\AABoostLib.dll;#2" /manifest x64\Release\AABoostLib.dll.intermediate.manifest
-       FinalizeBuildStatus:
-         Deleting file "x64\Release\AABoostLib.unsuccessfulbuild".
-         Touching "x64\Release\AABoostLib.lastbuildstate".
-     1>Done Building Project "D:\WorkPlace\GitHub\AABoostLib\AABoostLib\AABoostLib\AABoostLib.vcxproj" (build target(s)).
+﻿Build started 2012/10/7 16:15:17.
+     1>Project "D:\WorkPlace\GitHub\AABoostLib\AABoostLib\AABoostLib\AABoostLib.vcxproj" on node 2 (clean target(s)).
+     1>_PrepareForClean:
+         Deleting file "x64\Release\AABoostLib.lastbuildstate".
+     1>Done Building Project "D:\WorkPlace\GitHub\AABoostLib\AABoostLib\AABoostLib\AABoostLib.vcxproj" (clean target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:06.34
+Time Elapsed 00:00:00.02
