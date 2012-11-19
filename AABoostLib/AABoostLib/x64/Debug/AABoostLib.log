@@ -1,56 +1,34 @@
-﻿Build started 2012/9/14 19:40:47.
+﻿Build started 2012/11/7 12:43:21.
      1>Project "D:\WorkPlace\GitHub\AABoostLib\AABoostLib\AABoostLib\AABoostLib.vcxproj" on node 2 (build target(s)).
-     1>PrepareForBuild:
-         Creating directory "D:\WorkPlace\GitHub\AABoostLib\AABoostLib\x64\Debug\".
-       InitializeBuildStatus:
+     1>InitializeBuildStatus:
          Creating "x64\Debug\AABoostLib.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
-         D:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\CL.exe /c /ID:\OpenCV2.4.2\opencv\custombuild\install\include\opencv /ID:\OpenCV2.4.2\opencv\custombuild\install\include /Zi /nologo /W3 /WX- /Od /D WIN32 /D _DEBUG /D _WINDOWS /D _USRDLL /D AABOOSTLIB_EXPORTS /D _WINDLL /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc100.pdb" /Gd /TP /errorReport:prompt AABoostLib.cpp BackGround.cpp FallsDetector.cpp HaarFeature.cpp RealAdaboost.cpp
-         RealAdaboost.cpp
-     1>RealAdaboost.cpp(43): warning C4267: 'argument' : conversion from 'size_t' to 'uint32_t', possible loss of data
-     1>RealAdaboost.cpp(319): warning C4267: 'argument' : conversion from 'size_t' to 'uint32_t', possible loss of data
-         HaarFeature.cpp
-         FallsDetector.cpp
-         BackGround.cpp
-         AABoostLib.cpp
-         Generating Code...
+         D:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\CL.exe /c /ID:\OpenCV2.4.2\opencv\custombuild\install\include\opencv /ID:\OpenCV2.4.2\opencv\custombuild\install\include /Zi /nologo /W3 /WX- /Od /D WIN32 /D _DEBUG /D _WINDOWS /D _USRDLL /D AABOOSTLIB_EXPORTS /D _WINDLL /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc100.pdb" /Gd /TP /errorReport:prompt HogFeature.cpp
+         HogFeature.cpp
+     1>HogFeature.cpp(60): warning C4267: 'return' : conversion from 'size_t' to 'unsigned int', possible loss of data
        ManifestResourceCompile:
-         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"x64\Debug\AABoostLib.dll.embed.manifest.res" x64\Debug\AABoostLib_manifest.rc 
+         All outputs are up-to-date.
        Link:
-         D:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"D:\WorkPlace\GitHub\AABoostLib\AABoostLib\x64\Debug\AABoostLib.dll" /INCREMENTAL /NOLOGO /LIBPATH:D:\OpenCV2.4.2\opencv\custombuild\install\lib opencv_calib3d242d.lib opencv_contrib242d.lib opencv_core242d.lib opencv_features2d242d.lib opencv_flann242d.lib opencv_gpu242d.lib opencv_highgui242d.lib opencv_imgproc242d.lib opencv_legacy242d.lib opencv_ml242d.lib opencv_nonfree242d.lib opencv_objdetect242d.lib opencv_photo242d.lib opencv_stitching242d.lib opencv_ts242d.lib opencv_video242d.lib opencv_videostab242d.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /DEF:"AABoostLib.def" /MANIFEST /ManifestFile:"x64\Debug\AABoostLib.dll.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\WorkPlace\GitHub\AABoostLib\AABoostLib\x64\Debug\AABoostLib.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\WorkPlace\GitHub\AABoostLib\AABoostLib\Debug\AABoostLib.lib" /MACHINE:X64 /DLL x64\Debug\AABoostLib.dll.embed.manifest.res
+         D:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"D:\WorkPlace\GitHub\AABoostLib\AABoostLib\x64\Debug\AABoostLib.dll" /INCREMENTAL /NOLOGO /LIBPATH:D:\OpenCV2.4.2\opencv\custombuildX64\install\lib opencv_calib3d242d.lib opencv_contrib242d.lib opencv_core242d.lib opencv_features2d242d.lib opencv_flann242d.lib opencv_gpu242d.lib opencv_highgui242d.lib opencv_imgproc242d.lib opencv_legacy242d.lib opencv_ml242d.lib opencv_nonfree242d.lib opencv_objdetect242d.lib opencv_photo242d.lib opencv_stitching242d.lib opencv_ts242d.lib opencv_video242d.lib opencv_videostab242d.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /DEF:"AABoostLib.def" /MANIFEST /ManifestFile:"x64\Debug\AABoostLib.dll.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\WorkPlace\GitHub\AABoostLib\AABoostLib\x64\Debug\AABoostLib.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\WorkPlace\GitHub\AABoostLib\AABoostLib\Debug\AABoostLib.lib" /MACHINE:X64 /DLL x64\Debug\AABoostLib.dll.embed.manifest.res
          x64\Debug\AABoostLib.obj
          x64\Debug\BackGround.obj
          x64\Debug\FallsDetector.obj
          x64\Debug\HaarFeature.obj
+         x64\Debug\HogFeature.obj
          x64\Debug\RealAdaboost.obj
             Creating library D:\WorkPlace\GitHub\AABoostLib\AABoostLib\Debug\AABoostLib.lib and object D:\WorkPlace\GitHub\AABoostLib\AABoostLib\Debug\AABoostLib.exp
-     1>BackGround.obj : error LNK2019: unresolved external symbol "public: void __cdecl cv::Mat::copySize(class cv::Mat const &)" (?copySize@Mat@cv@@QEAAXAEBV12@@Z) referenced in function "public: __cdecl cv::Mat::Mat(class cv::Mat const &)" (??0Mat@cv@@QEAA@AEBV01@@Z)
-     1>FallsDetector.obj : error LNK2001: unresolved external symbol "public: void __cdecl cv::Mat::copySize(class cv::Mat const &)" (?copySize@Mat@cv@@QEAAXAEBV12@@Z)
-     1>HaarFeature.obj : error LNK2001: unresolved external symbol "public: void __cdecl cv::Mat::copySize(class cv::Mat const &)" (?copySize@Mat@cv@@QEAAXAEBV12@@Z)
-     1>BackGround.obj : error LNK2019: unresolved external symbol "void __cdecl cv::fastFree(void *)" (?fastFree@cv@@YAXPEAX@Z) referenced in function "public: __cdecl cv::Mat::~Mat(void)" (??1Mat@cv@@QEAA@XZ)
-     1>FallsDetector.obj : error LNK2001: unresolved external symbol "void __cdecl cv::fastFree(void *)" (?fastFree@cv@@YAXPEAX@Z)
-     1>HaarFeature.obj : error LNK2001: unresolved external symbol "void __cdecl cv::fastFree(void *)" (?fastFree@cv@@YAXPEAX@Z)
-     1>BackGround.obj : error LNK2019: unresolved external symbol "public: void __cdecl cv::Mat::deallocate(void)" (?deallocate@Mat@cv@@QEAAXXZ) referenced in function "public: void __cdecl cv::Mat::release(void)" (?release@Mat@cv@@QEAAXXZ)
-     1>FallsDetector.obj : error LNK2001: unresolved external symbol "public: void __cdecl cv::Mat::deallocate(void)" (?deallocate@Mat@cv@@QEAAXXZ)
-     1>HaarFeature.obj : error LNK2001: unresolved external symbol "public: void __cdecl cv::Mat::deallocate(void)" (?deallocate@Mat@cv@@QEAAXXZ)
-     1>BackGround.obj : error LNK2019: unresolved external symbol "bool __cdecl cv::imwrite(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,class cv::_InputArray const &,class std::vector<int,class std::allocator<int> > const &)" (?imwrite@cv@@YA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBV_InputArray@1@AEBV?$vector@HV?$allocator@H@std@@@3@@Z) referenced in function "private: void __cdecl BackGround::OutputBackground(double,double,double)" (?OutputBackground@BackGround@@AEAAXNNN@Z)
-     1>BackGround.obj : error LNK2019: unresolved external symbol "void __cdecl cv::resize(class cv::_InputArray const &,class cv::_OutputArray const &,class cv::Size_<int>,double,double,int)" (?resize@cv@@YAXAEBV_InputArray@1@AEBV_OutputArray@1@V?$Size_@H@1@NNH@Z) referenced in function "private: void __cdecl BackGround::OutputBackground(double,double,double)" (?OutputBackground@BackGround@@AEAAXNNN@Z)
-     1>BackGround.obj : error LNK2019: unresolved external symbol "public: __cdecl cv::_InputArray::_InputArray(class cv::Mat const &)" (??0_InputArray@cv@@QEAA@AEBVMat@1@@Z) referenced in function "private: void __cdecl BackGround::OutputBackground(double,double,double)" (?OutputBackground@BackGround@@AEAAXNNN@Z)
-     1>HaarFeature.obj : error LNK2001: unresolved external symbol "public: __cdecl cv::_InputArray::_InputArray(class cv::Mat const &)" (??0_InputArray@cv@@QEAA@AEBVMat@1@@Z)
-     1>BackGround.obj : error LNK2019: unresolved external symbol "public: __cdecl cv::_OutputArray::_OutputArray(class cv::Mat &)" (??0_OutputArray@cv@@QEAA@AEAVMat@1@@Z) referenced in function "private: void __cdecl BackGround::OutputBackground(double,double,double)" (?OutputBackground@BackGround@@AEAAXNNN@Z)
-     1>HaarFeature.obj : error LNK2001: unresolved external symbol "public: __cdecl cv::_OutputArray::_OutputArray(class cv::Mat &)" (??0_OutputArray@cv@@QEAA@AEAVMat@1@@Z)
-     1>BackGround.obj : error LNK2019: unresolved external symbol "public: void __cdecl cv::Mat::create(int,int const *,int)" (?create@Mat@cv@@QEAAXHPEBHH@Z) referenced in function "public: void __cdecl cv::Mat::create(int,int,int)" (?create@Mat@cv@@QEAAXHHH@Z)
-     1>HaarFeature.obj : error LNK2001: unresolved external symbol "public: void __cdecl cv::Mat::create(int,int const *,int)" (?create@Mat@cv@@QEAAXHPEBHH@Z)
-     1>BackGround.obj : error LNK2019: unresolved external symbol "public: __cdecl cv::Mat::Mat(class cv::Mat const &,class cv::Rect_<int> const &)" (??0Mat@cv@@QEAA@AEBV01@AEBV?$Rect_@H@1@@Z) referenced in function "public: class cv::Mat __cdecl cv::Mat::operator()(class cv::Rect_<int> const &)const " (??RMat@cv@@QEBA?AV01@AEBV?$Rect_@H@1@@Z)
-     1>BackGround.obj : error LNK2019: unresolved external symbol "class cv::Mat __cdecl cv::imread(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,int)" (?imread@cv@@YA?AVMat@1@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H@Z) referenced in function "public: void __cdecl BackGround::GetBackground(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,unsigned int,unsigned int,double,double,double)" (?GetBackground@BackGround@@QEAAXV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@0IINNN@Z)
-     1>FallsDetector.obj : error LNK2001: unresolved external symbol "class cv::Mat __cdecl cv::imread(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,int)" (?imread@cv@@YA?AVMat@1@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H@Z)
-     1>HaarFeature.obj : error LNK2019: unresolved external symbol "void __cdecl cv::integral(class cv::_InputArray const &,class cv::_OutputArray const &,int)" (?integral@cv@@YAXAEBV_InputArray@1@AEBV_OutputArray@1@H@Z) referenced in function "private: void __cdecl HaarFeature::CalcIntegralImage(class cv::Mat const &)" (?CalcIntegralImage@HaarFeature@@AEAAXAEBVMat@cv@@@Z)
-     1>HaarFeature.obj : error LNK2019: unresolved external symbol "public: virtual __cdecl cv::Exception::~Exception(void)" (??1Exception@cv@@UEAA@XZ) referenced in function "public: double & __cdecl cv::Mat::at<double>(int,int)" (??$at@N@Mat@cv@@QEAAAEANHH@Z)
-     1>HaarFeature.obj : error LNK2019: unresolved external symbol "void __cdecl cv::error(class cv::Exception const &)" (?error@cv@@YAXAEBVException@1@@Z) referenced in function "public: double & __cdecl cv::Mat::at<double>(int,int)" (??$at@N@Mat@cv@@QEAAAEANHH@Z)
-     1>HaarFeature.obj : error LNK2019: unresolved external symbol "public: __cdecl cv::Exception::Exception(int,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,int)"(??0Exception@cv@@QEAA@HAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@00H@Z) referenced in function "public: double & __cdecl cv::Mat::at<double>(int,int)" (??$at@N@Mat@cv@@QEAAAEANHH@Z)
-     1>D:\WorkPlace\GitHub\AABoostLib\AABoostLib\x64\Debug\AABoostLib.dll : fatal error LNK1120: 14 unresolved externals
-     1>Done Building Project "D:\WorkPlace\GitHub\AABoostLib\AABoostLib\AABoostLib\AABoostLib.vcxproj" (build target(s)) -- FAILED.
+         AABoostLib.vcxproj -> D:\WorkPlace\GitHub\AABoostLib\AABoostLib\x64\Debug\AABoostLib.dll
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"x64\Debug\AABoostLib.dll.embed.manifest" /manifest x64\Debug\AABoostLib.dll.intermediate.manifest
+         All outputs are up-to-date.
+       LinkEmbedManifest:
+         All outputs are up-to-date.
+         AABoostLib.vcxproj -> D:\WorkPlace\GitHub\AABoostLib\AABoostLib\x64\Debug\AABoostLib.dll
+       FinalizeBuildStatus:
+         Deleting file "x64\Debug\AABoostLib.unsuccessfulbuild".
+         Touching "x64\Debug\AABoostLib.lastbuildstate".
+     1>Done Building Project "D:\WorkPlace\GitHub\AABoostLib\AABoostLib\AABoostLib\AABoostLib.vcxproj" (build target(s)).
 
-Build FAILED.
+Build succeeded.
 
-Time Elapsed 00:00:05.69
+Time Elapsed 00:00:01.96

@@ -66,7 +66,7 @@ void FallsDetector::CreateCascadeClassifier(string posfile,string negfile)
 		//if(m_i==1)
 		//	PrepareSamples(posfile,negfile);
 		if(m_i==1)
-			LoadSamples("D:/WorkPlace/samples/POSDATA","D:/WorkPlace/samples/NEGDATA");
+			LoadSamples("D:/WorkPlace/samples/POSDATA2","D:/WorkPlace/samples/NEGDATA2");
 
 		LevelTrain();
 		
@@ -194,8 +194,8 @@ void FallsDetector::SaveFeatures(ofstream &fout,vector<double> &features)
 void FallsDetector::LoadSamples(string posdata,string negdata)
 {
 	//const unsigned int featuresnum=100;
-	const unsigned int featuresnum=85230;
-	const unsigned int samplesnum=3000;
+	const unsigned int featuresnum=221;
+	const unsigned int samplesnum=15000;
 	unsigned int old_total;
 	unsigned int total;
 	ifstream fin;

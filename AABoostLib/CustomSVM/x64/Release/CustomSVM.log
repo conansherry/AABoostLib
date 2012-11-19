@@ -1,0 +1,9 @@
+﻿Build started 2012/11/19 19:46:48.
+     1>Project "D:\WorkPlace\GitHub\AABoostLib\AABoostLib\CustomSVM\CustomSVM.vcxproj" on node 2 (clean target(s)).
+     1>_PrepareForClean:
+         Deleting file "x64\Release\CustomSVM.lastbuildstate".
+     1>Done Building Project "D:\WorkPlace\GitHub\AABoostLib\AABoostLib\CustomSVM\CustomSVM.vcxproj" (clean target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.10

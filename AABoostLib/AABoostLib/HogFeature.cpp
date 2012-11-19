@@ -29,26 +29,38 @@ void HogFeature::CreateHogDescriptor(cv::Size win_size,cv::Size block_size,cv::S
 	m_cpuhog=new cv::HOGDescriptor(win_size,block_size,block_stride,cell_size,nbins);
 }
 
-void HogFeature::ExtractHaarFeatures(const cv::Mat &image)
+void HogFeature::ExtractHaarFeatures(const cv::Mat &image,cv::Size winStride)
 {
 	m_features.clear();
 
 	if(m_cpuhog)
 	{
 		vector<float> tmpfeatures;
-		m_cpuhog->compute(image,tmpfeatures,cv::Size(1,1),cv::Size(0,0));
+		m_cpuhog->compute(image,tmpfeatures,winStride,cv::Size(0,0));
 		m_features.assign(tmpfeatures.begin(),tmpfeatures.end());
 	}
 }
 
-void HogFeature::ExtractHaarFeatures(const cv::Mat &image,vector<double> &features)
+void HogFeature::ExtractHaarFeatures(const cv::Mat &image,cv::Size winStride,vector<double> &features)
 {
 	features.clear();
 
-	ExtractHaarFeatures(image);
+	ExtractHaarFeatures(image,winStride);
 
 	if(m_cpuhog)
 	{
 		features=m_features;
+	}
+}
+
+unsigned int HogFeature::GetFeaturesDim()
+{
+	if(m_cpuhog)
+	{
+		return m_cpuhog->getDescriptorSize();
+	}
+	else
+	{
+		return 0;
 	}
 }

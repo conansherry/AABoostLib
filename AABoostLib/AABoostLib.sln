@@ -5,6 +5,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AABoostLib", "AABoostLib\AA
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LibTest", "LibTest\LibTest.vcxproj", "{A737549F-B744-43D3-A513-97416A1E30B8}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CustomSVM", "CustomSVM\CustomSVM.vcxproj", "{A46A39F5-ECB5-4788-9ABD-4640ABD0371A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -29,6 +31,14 @@ Global
 		{A737549F-B744-43D3-A513-97416A1E30B8}.Release|Win32.Build.0 = Release|Win32
 		{A737549F-B744-43D3-A513-97416A1E30B8}.Release|x64.ActiveCfg = Release|x64
 		{A737549F-B744-43D3-A513-97416A1E30B8}.Release|x64.Build.0 = Release|x64
+		{A46A39F5-ECB5-4788-9ABD-4640ABD0371A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{A46A39F5-ECB5-4788-9ABD-4640ABD0371A}.Debug|Win32.Build.0 = Debug|Win32
+		{A46A39F5-ECB5-4788-9ABD-4640ABD0371A}.Debug|x64.ActiveCfg = Debug|x64
+		{A46A39F5-ECB5-4788-9ABD-4640ABD0371A}.Debug|x64.Build.0 = Debug|x64
+		{A46A39F5-ECB5-4788-9ABD-4640ABD0371A}.Release|Win32.ActiveCfg = Release|Win32
+		{A46A39F5-ECB5-4788-9ABD-4640ABD0371A}.Release|Win32.Build.0 = Release|Win32
+		{A46A39F5-ECB5-4788-9ABD-4640ABD0371A}.Release|x64.ActiveCfg = Release|x64
+		{A46A39F5-ECB5-4788-9ABD-4640ABD0371A}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

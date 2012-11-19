@@ -1,5 +1,9 @@
-﻿Build started 2012/10/7 16:15:20.
+﻿Build started 2012/11/19 19:46:46.
+     1>Project "D:\WorkPlace\GitHub\AABoostLib\AABoostLib\LibTest\LibTest.vcxproj" on node 2 (clean target(s)).
+     1>_PrepareForClean:
+         Deleting file "x64\Release\LibTest.lastbuildstate".
+     1>Done Building Project "D:\WorkPlace\GitHub\AABoostLib\AABoostLib\LibTest\LibTest.vcxproj" (clean target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.00
+Time Elapsed 00:00:00.12

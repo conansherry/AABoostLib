@@ -15,13 +15,16 @@ public:
 	HogFeature();
 	~HogFeature();
 
-	void ExtractHaarFeatures(const cv::Mat &image);
-	void ExtractHaarFeatures(const cv::Mat &image,vector<double> &features);
+	void CreateHogDescriptor(cv::Size win_size=cv::Size(64,128),cv::Size block_size=cv::Size(16,16),cv::Size block_stride=cv::Size(8,8),cv::Size cell_size=cv::Size(8,8),int nbins=9);
+
+	void ExtractHaarFeatures(const cv::Mat &image,cv::Size winStride);
+	void ExtractHaarFeatures(const cv::Mat &image,cv::Size winStride,vector<double> &features);
+
+	unsigned int GetFeaturesDim();
 
 	//ÐÐÎª
 private:
 	void Init();
-	void CreateHogDescriptor(cv::Size win_size=cv::Size(64,128),cv::Size block_size=cv::Size(16,16),cv::Size block_stride=cv::Size(8,8),cv::Size cell_size=cv::Size(8,8),int nbins=9);
 	
 	//ÊôÐÔ
 public:
